@@ -18,13 +18,13 @@ def longest_non_repeat_v1(string):
     """
     if string is None:
         return 0
-    dict = {}
+    helper_dict = {}
     max_length = 0
     j = 0
     for i in range(len(string)):
-        if string[i] in dict:
-            j = max(dict[string[i]], j)
-        dict[string[i]] = i + 1
+        if string[i] in helper_dict:
+            j = max(helper_dict[string[i]], j)
+        helper_dict[string[i]] = i + 1
         max_length = max(max_length, i - j + 1)
     return max_length
 
@@ -56,13 +56,13 @@ def get_longest_non_repeat_v1(string):
     if string is None:
         return 0, ''
     sub_string = ''
-    dict = {}
+    helper_dict = {}
     max_length = 0
     j = 0
     for i in range(len(string)):
-        if string[i] in dict:
-            j = max(dict[string[i]], j)
-        dict[string[i]] = i + 1
+        if string[i] in helper_dict:
+            j = max(helper_dict[string[i]], j)
+        helper_dict[string[i]] = i + 1
         if i - j + 1 > max_length:
             max_length = i - j + 1
             sub_string = string[j: i + 1]
