@@ -1,3 +1,3 @@
 # 1. feladat, statikus kódanalízis
 
-Üres dokumentáció.
+A statikus kódanalízist a SonarCloud eszközzel végeztük.
