@@ -15,3 +15,6 @@ Volt közöttük:
 - Tagváltozó, ami az osztály nevével rendelkezik
 
 Ezek közül nem mindet javítottuk, viszont súlyosság szerint megnéztük azokat, és átnéztük, hogy valós problémát jelentenek-e.
+
+Ezen kívül még a Security Hotspotokat néztük át a SonarCloud által jelzett problémák közül.
+Weak cryptography hibajelzéseket kaptunk véletlenszámgenerátorok használata miatt, amik azért voltak, mert a Python beépített randomgenerátora pszeudorandom generátor. Így például valós véletlenszámot igénylő dolgoknál(például IT Biztonsági algoritmusoknál) ez jelenthet hibát. Szerintünk ez nem okoz problémát, mivel ezen library biztonságkritikus algoritmusai csak a megértést segítik, nem valós kriptográfiai környezetben való használatra vannak kitalálva, arra vannak külön libraryk.
