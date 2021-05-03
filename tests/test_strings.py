@@ -379,23 +379,23 @@ class TestRomanToInt(unittest.TestCase):
         self.assertEqual(3999, roman_to_int("MMMCMXCIX"))
 
 
-# class TestStripUrlParams(unittest.TestCase):
-#     """[summary]
-#     Test for the file strip_urls_params.py
+class TestStripUrlParams(unittest.TestCase):
+ """[summary]
+ Test for the file strip_urls_params.py
 
-#     Arguments:
-#         unittest {[type]} -- [description]
-#     """
+ Arguments:
+     unittest {[type]} -- [description]
+ """
 
-#     def test_strip_url_params1(self):
-#         self.assertEqual(strip_url_params1("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
-#         self.assertEqual(strip_url_params1("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
-#     def test_strip_url_params2(self):
-#         self.assertEqual(strip_url_params2("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
-#         self.assertEqual(strip_url_params2("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
-#     def test_strip_url_params3(self):
-#         self.assertEqual(strip_url_params3("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
-#         self.assertEqual(strip_url_params3("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
+ def test_strip_url_params1(self):
+     self.assertEqual(strip_url_params1("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
+     self.assertEqual(strip_url_params1("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
+ def test_strip_url_params2(self):
+     self.assertEqual(strip_url_params2("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
+     self.assertEqual(strip_url_params2("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
+ def test_strip_url_params3(self):
+     self.assertEqual(strip_url_params3("www.saadbenn.com?a=1&b=2&a=2"), "www.saadbenn.com?a=1&b=2")
+     self.assertEqual(strip_url_params3("www.saadbenn.com?a=1&b=2", ['b']), "www.saadbenn.com?a=1")
 
 
 class TestValidateCoordinates(unittest.TestCase):
@@ -476,12 +476,6 @@ class TestCountBinarySubstring(unittest.TestCase):
         self.assertEqual(3, count_binary_substring("00110"))
 
 
-class TestCountBinarySubstring(unittest.TestCase):
-    def test_repeat_string(self):
-        self.assertEqual(3, repeat_string("abcd", "cdabcdab"))
-        self.assertEqual(4, repeat_string("bb", "bbbbbbb"))
-
-
 class TestTextJustification(unittest.TestCase):
     def test_text_justification(self):
         self.assertEqual(["This    is    an",
@@ -504,6 +498,13 @@ class TestMinDistance(unittest.TestCase):
     def test_min_distance(self):
         self.assertEqual(2, min_distance("sea", "eat"))
         self.assertEqual(6, min_distance("abAlgocrithmf", "Algorithmmd"))
+
+class TestRepeatString(unittest.TestCase):
+    def test_repeat_string(self):
+        self.assertEqual(3, repeat_string("abcd", "cdabcdab"))
+        self.assertEqual(4, repeat_string("bb", "bbbbbbb"))
+        self.assertEqual(-1, repeat_string("bb", "aaaaaaa"))
+
 
 class TestLongestCommonPrefix(unittest.TestCase):
     def test_longest_common_prefix(self):

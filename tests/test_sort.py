@@ -14,6 +14,7 @@ from algorithms.sort import (
     selection_sort,
     bucket_sort,
     shell_sort,
+    stoogesort,
     radix_sort,
     gnome_sort,
     cocktail_shaker_sort,
@@ -60,9 +61,6 @@ class TestSuite(unittest.TestCase):
 
         self.assertTrue(is_sorted(min_heap_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
 
-    def test_insertion_sort(self):
-        self.assertTrue(is_sorted(bitonic_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
-
     def test_merge_sort(self):
         self.assertTrue(is_sorted(merge_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
 
@@ -93,6 +91,14 @@ class TestSuite(unittest.TestCase):
     def test_cocktail_shaker_sort(self):
         self.assertTrue(is_sorted(cocktail_shaker_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
 
+    def test_insertion_sort(self):
+        self.assertTrue(is_sorted(insertion_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
+
+    def test_stooge_sort(self):
+        arr = [1, 3, 2, 5, 65, 23, 57, 1232]
+        self.assertFalse(is_sorted(arr))
+        stoogesort(arr, 0, len(arr) - 1)
+        self.assertTrue(is_sorted(arr))
 
 class TestTopSort(unittest.TestCase):
     def setUp(self):
