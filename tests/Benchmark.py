@@ -4,9 +4,9 @@ import timeit
 from algorithms.sort import (quick_sort, bubble_sort, gnome_sort, pancake_sort)
 
 
-def rand_list_fill(size):
+def generate_random_list(size):
     filled_list = []
-    for i in range(0, size):
+    for _ in range(0, size):
         filled_list.append(random.randint(0, size))
     return filled_list
 
@@ -25,7 +25,7 @@ for algorithm in algorithm_to_benchmark:
     print("Tested Algorithm: " + algorithm.__name__)
     for n in list_of_sample_size:
         for r in range(0, num_runs):
-            duration += benchmark_run(algorithm, rand_list_fill(n))
+            duration += benchmark_run(algorithm, generate_random_list(n))
         print("Sample size: " + str(n) + "\n    Number of Runs: " + str(num_runs) + "\n    Avg.Duration: " + str(
             duration / num_runs))
         duration = 0
