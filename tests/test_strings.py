@@ -476,12 +476,6 @@ class TestCountBinarySubstring(unittest.TestCase):
         self.assertEqual(3, count_binary_substring("00110"))
 
 
-class TestCountBinarySubstring(unittest.TestCase):
-    def test_repeat_string(self):
-        self.assertEqual(3, repeat_string("abcd", "cdabcdab"))
-        self.assertEqual(4, repeat_string("bb", "bbbbbbb"))
-
-
 class TestTextJustification(unittest.TestCase):
     def test_text_justification(self):
         self.assertEqual(["This    is    an",
