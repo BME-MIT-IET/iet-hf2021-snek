@@ -21,6 +21,8 @@ def max_product(nums):
         lmin = min(min(t1, t2), nums[i])
         gmax = max(gmax, lmax)
 
+    return gmax
+
 
 '''
 Another approach that would print max product and the subarray
@@ -60,8 +62,11 @@ def subarray_with_max_product(arr):
             so_far_start_i = max_start_i
 
     if all_negative_flag:
+        result = reduce(lambda x, y: x * y, arr)
         print("max_product_so_far: %s, %s" %
               (reduce(lambda x, y: x * y, arr), arr))
     else:
+        result = product_so_far
         print("max_product_so_far: %s, %s" %
               (product_so_far, arr[so_far_start_i:so_far_end_i + 1]))
+    return result
