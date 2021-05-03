@@ -499,6 +499,13 @@ class TestMinDistance(unittest.TestCase):
         self.assertEqual(2, min_distance("sea", "eat"))
         self.assertEqual(6, min_distance("abAlgocrithmf", "Algorithmmd"))
 
+class TestRepeatString(unittest.TestCase):
+    def test_repeat_string(self):
+        self.assertEqual(3, repeat_string("abcd", "cdabcdab"))
+        self.assertEqual(4, repeat_string("bb", "bbbbbbb"))
+        self.assertEqual(-1, repeat_string("bb", "aaaaaaa"))
+
+
 class TestLongestCommonPrefix(unittest.TestCase):
     def test_longest_common_prefix(self):
         # Test first solution
