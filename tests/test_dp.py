@@ -19,7 +19,10 @@ from algorithms.dp import (
     subarray_with_max_product,
     min_cost,
     num_decodings,
-    num_decodings2
+    num_decodings2,
+    is_match,
+    cut_rod,
+    word_break
 )
 
 
@@ -186,12 +189,31 @@ class TestLongestIncreasingSubsequenceOptimized2(unittest.TestCase):
         self.assertEqual(5, longest_increasing_subsequence_optimized2(sequence))
 
 
+class TestRegexMatching(unittest.TestCase):
+    def test_regex_matching(self):
+        s = "abb"
+        p = "ab*"
+        self.assertTrue(is_match(s, p))
+
+
 class TestIntDivide(unittest.TestCase):
     def test_int_divide(self):
         self.assertEqual(5, int_divide(4))
         self.assertEqual(42, int_divide(10))
         self.assertEqual(204226, int_divide(50))
 
+
+class TestRodCut(unittest.TestCase):
+    def test_cut_rod(self):
+        arr = [1, 5, 8, 9, 10, 17, 17, 20]
+        self.assertEqual(22, cut_rod(arr))
+
+
+class TestWordBreak(unittest.TestCase):
+    def test_word_break(self):
+        s = "wordbreaker"
+        word_dict = ["word", "breaker"]
+        self.assertTrue(word_break(s,word_dict))
 
 class Test_dp_K_Factor(unittest.TestCase):
     def test_kfactor(self):
