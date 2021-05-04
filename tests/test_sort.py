@@ -97,8 +97,7 @@ class TestSuite(unittest.TestCase):
     def test_stooge_sort(self):
         arr = [1, 3, 2, 5, 65, 23, 57, 1232]
         self.assertFalse(is_sorted(arr))
-        stoogesort(arr, 0, len(arr) - 1)
-        self.assertTrue(is_sorted(arr))
+        self.assertTrue(is_sorted(stoogesort(arr, 0, len(arr) - 1)))
 
 class TestTopSort(unittest.TestCase):
     def setUp(self):
