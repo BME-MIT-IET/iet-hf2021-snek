@@ -14,12 +14,7 @@ from algorithms.dp import (
     longest_increasing_subsequence_optimized,
     longest_increasing_subsequence_optimized2,
     int_divide,find_k_factor,
-    planting_trees,
-    max_product,
-    subarray_with_max_product,
-    min_cost,
-    num_decodings,
-    num_decodings2
+    planting_trees
 )
 
 
@@ -136,37 +131,6 @@ class TestKnapsack(unittest.TestCase):
         item1, item2, item3, item4 = Item(60, 5), Item(50, 3), Item(70, 4), Item(30, 2)
         self.assertEqual(80, get_maximum_value([item1, item2, item3, item4], 5))
 
-class MaxProduct(unittest.TestCase):
-    def test_max_product(self):
-        nums = [2, 3, -2, 4]
-        self.assertEqual(12, max_product(nums))
-
-
-class SubarrayWithMaxProduct(unittest.TestCase):
-    def test_subarray_with_max_product(self):
-        nums = [2, 3, 6, -1, -1, 9, 5]
-        self.assertEqual(45, subarray_with_max_product(nums))
-
-
-class MinCost(unittest.TestCase):
-    def test_min_cost(self):
-        cost = [[0, 15, 80, 90],  # cost[i][j] is the cost of
-                [-1, 0, 40, 50],  # going from i --> j
-                [-1, -1, 0, 70],
-                [-1, -1, -1, 0]]  # cost[i][j] = -1 for i > j
-
-        self.assertEqual(65, min_cost(cost))
-
-
-class NumDecodings(unittest.TestCase):
-    def test_num_decodings(self):
-        self.assertEqual(2, num_decodings("12"))
-
-
-class NumDecodings2(unittest.TestCase):
-    def test_num_decodings2(self):
-        self.assertEqual(2, num_decodings2("24"))
-
 
 class TestLongestIncreasingSubsequence(unittest.TestCase):
     def test_longest_increasing_subsequence(self):
@@ -177,13 +141,13 @@ class TestLongestIncreasingSubsequence(unittest.TestCase):
 class TestLongestIncreasingSubsequenceOptimized(unittest.TestCase):
     def test_longest_increasing_subsequence_optimized(self):
         sequence = [1, 101, 10, 2, 3, 100, 4, 6, 2]
-        self.assertEqual(5, longest_increasing_subsequence_optimized(sequence))
+        self.assertEqual(5, longest_increasing_subsequence(sequence))
 
 
 class TestLongestIncreasingSubsequenceOptimized2(unittest.TestCase):
     def test_longest_increasing_subsequence_optimized2(self):
         sequence = [1, 101, 10, 2, 3, 100, 4, 6, 2]
-        self.assertEqual(5, longest_increasing_subsequence_optimized2(sequence))
+        self.assertEqual(5, longest_increasing_subsequence(sequence))
 
 
 class TestIntDivide(unittest.TestCase):
@@ -191,7 +155,6 @@ class TestIntDivide(unittest.TestCase):
         self.assertEqual(5, int_divide(4))
         self.assertEqual(42, int_divide(10))
         self.assertEqual(204226, int_divide(50))
-
 
 class Test_dp_K_Factor(unittest.TestCase):
     def test_kfactor(self):
@@ -220,7 +183,6 @@ class Test_dp_K_Factor(unittest.TestCase):
         k5=1
         self.assertEqual(find_k_factor(n5,k5),71284044)
 
-
 class TestPlantingTrees(unittest.TestCase):
     def test_simple(self):
         # arrange
@@ -245,7 +207,6 @@ class TestPlantingTrees(unittest.TestCase):
 
         # assert
         self.assertEqual(res, 9.28538328578604)
-
 
 if __name__ == '__main__':
     unittest.main()
