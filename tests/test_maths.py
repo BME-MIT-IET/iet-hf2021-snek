@@ -30,7 +30,6 @@ from algorithms.maths import (
 )
 
 import unittest
-import pytest
 
 
 class TestPower(unittest.TestCase):
