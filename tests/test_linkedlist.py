@@ -9,7 +9,9 @@ from algorithms.linkedlist import (
     is_cyclic,
     merge_two_list, merge_two_list_recur,
     is_palindrome, is_palindrome_stack, is_palindrome_dict,
-    RandomListNode, copy_random_pointer_v1, copy_random_pointer_v2
+    RandomListNode, copy_random_pointer_v1, copy_random_pointer_v2,
+    merge_k_lists
+
 )
 
 
@@ -209,6 +211,22 @@ class TestSuite(unittest.TestCase):
         random_list_node3.next, random_list_node3.random = random_list_node4, random_list_node2
         random_list_node4.next = random_list_node5
         random_list_node5.random = random_list_node3
+
+    def test_merge_k_lists(self):
+        head1 = Node(1)
+        head1.next = Node(2)
+        head1.next.next = Node(4)
+        head2 = Node(3)
+        head2.next = Node(5)
+        head2.next.next = Node(7)
+        head3 = Node(6)
+        head3.next = Node(8)
+        head3.next.next = Node(9)
+
+
+
+        print(f"{convert(merge_k_lists([head1,head2,head3]))}")
+        self.assertEqual([1,2,3,4,5,6,7,8,9], convert(merge_k_lists([head1,head2,head3])))
 
 
 if __name__ == "__main__":
