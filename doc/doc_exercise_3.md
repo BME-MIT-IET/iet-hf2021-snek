@@ -1,7 +1,7 @@
 # 3. feladat, benchmarking
 
 Az alapvető ötletünk az volt, hogy egyes rendező algoritmusok futási idejét valahogy megmérjük és ennek vizualizációjával
-elmondhassuk hogy a leimplementált algoritmusok teljesítik a várt komplexitásukat.
+vizsgáljuk hogy a leimplementált algoritmusok teljesítik-e a várt komplexitásukat.
 
 Ennek a mérésére a python **timeit** funkcióját használtuk, az adatokat pedig a **pandas, matplotlib** és **seaborn** 
 könyvtárak segítségével tároltuk és vizualizáltuk.
@@ -25,10 +25,10 @@ könyvtárak segítségével tároltuk és vizualizáltuk.
 - Comb sort
 
 A két csoport között a különbség csak a rendezendő számok mennyiségében volt, mivel az 1-es csoportba tartozó
-rendezési algoritmusok viszonlyag gyorsan tudnak rendezni több tízeres méretű tömböket addig a 2-es csoportban megtalálhatóak
-olyan algoritmusok amik tízezres nagyságrendben egyes esetekbe órákig is rendeznék a random számokkal feltöltött tömböket. 
+rendezési algoritmusok viszonylag gyorsan tudnak rendezni több tízeres méretű tömböket, ellenben a 2-es csoportban megtalálhatóak
+olyan algoritmusok amik tízezres nagyságrendben egyes esetekben órákig is rendeznék a random számokkal feltöltött tömböket. 
 
-#Eredmények
+# Eredmények
 
 **1.Csoport**  
 
@@ -42,9 +42,9 @@ olyan algoritmusok amik tízezres nagyságrendben egyes esetekbe órákig is ren
 | Counting sort |    O(n+k)   |    O(n+k) |O(n+k) |
 | Radix sort | O(n*k)     |    O(n*k)  |   O(n*k)       |
 
-A Diagrammokon látható hogy többnyire kijönnek a várt eredmények és a különbségeka  futási komplexitások között.
-Az egyetlen érdekesebb eredményt a Merge sort-nál vehető észre ami sokkal rosszabban teljesít mint a quicck sort ami nem
-lenne elvárt, itt lehet felül kéne vizsgálni a Merge sort implementációját.
+A Diagrammokon látható, hogy többnyire kijönnek a várt eredmények és a különbségek a futási komplexitások között.
+Az egyetlen érdekesebb eredmény a Merge sort-nál vehető észre ami sokkal rosszabban teljesít mint a quick sort, ami nem
+lenne elvárt, ezért érdemes lehet felülvizsgálni a Merge sort implementációját.
 
 **2.csoport**
 
@@ -60,5 +60,6 @@ lenne elvárt, itt lehet felül kéne vizsgálni a Merge sort implementációjá
 | Cycle sort |   O(n^2)   |    O(n^2) |O(n^2) |
 | Comb sort | O(n^2)     |    O(n*log(n))  |   O( (n^2)/(k^p) )  |
 
-Itt is többnyire láthatóak a várt eredmények és a komplexitások közötti különbség, ami érdekesség itt látszik hogy a heap rendezések
-a várt komplexitáshoz képest rosszabbul teljesítenek ezért ezek át nézését tudjuk javasolni.
+
+Itt is többnyire láthatóak a várt eredmények, és a mért komplexitások közötti különbségek. Ami érdekes, hogy a heap rendezések
+a várt komplexitáshoz képest rosszabbul teljesítenek, ezért ezek implementációját is érdemes lehet felülvizsgálni.
