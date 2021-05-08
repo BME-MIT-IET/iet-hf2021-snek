@@ -22,7 +22,8 @@ from algorithms.dp import (
     num_decodings2,
     is_match,
     cut_rod,
-    word_break
+    word_break,
+    matrix_chain_order,print_optimal_solution
 )
 
 
@@ -267,6 +268,12 @@ class TestPlantingTrees(unittest.TestCase):
 
         # assert
         self.assertEqual(res, 9.28538328578604)
+
+
+class TestMatrixChainOrder(unittest.TestCase):
+    def test_matrix_chain_order(self):
+        array = [40, 20, 30, 10, 30]
+        self.assertEqual(26000, matrix_chain_order(array))
 
 
 if __name__ == '__main__':

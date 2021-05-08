@@ -4,42 +4,28 @@ Implementation of matrix Chain Multiplication
 Time Complexity: O(n^3)
 Space Complexity: O(n^2)
 '''
+
+import sys
+
 INF = float("inf")
 
 def matrix_chain_order(array):
-    n=len(array)
-    matrix = [[0 for x in range(n)] for x in range(n)]
-    sol = [[0 for x in range(n)] for x in range(n)]
-    for chain_length in range(2,n):
-        for a in range(1,n-chain_length+1):
-            b = a+chain_length-1
+    n = len(array)
+    # create the table to store solutions to sub problems
+    m = [[0 for x in range(n)] for x in range(n)]
 
-            matrix[a][b] = INF
-            for c in range(a, b):
-                cost = matrix[a][c] + matrix[c+1][b] + array[a-1]*array[c]*array[b]
-                if cost < matrix[a][b]:
-                    matrix[a][b] = cost
-                    sol[a][b] = c
-    return matrix , sol
-#Print order of matrix with Ai as matrix
+    # l is the length of the chain
+    for l in range(2, n):
+        for i in range(1, n - l + 1):
+            j = i + l - 1
+            # store a maximum integer in the table for further comparison
+            m[i][j] = sys.maxsize
+            for k in range(i, j):
+                # q holds the value of multiplication cost till j elements
+                q = m[i][k] + m[k + 1][j] + array[i - 1] * array[k] * array[j]
+                # compare previous cost with q
+                if q < m[i][j]:
+                    m[i][j] = q
+    # last element of first row contains the result to the entire problem
+    return m[1][n - 1]
 
-def print_optimal_solution(optimal_solution,i,j):
-    if i==j:
-        print("A" + str(i),end = " ")
-    else:
-        print("(",end = " ")
-        print_optimal_solution(optimal_solution,i,optimal_solution[i][j])
-        print_optimal_solution(optimal_solution,optimal_solution[i][j]+1,j)
-        print(")",end = " ")
-
-def main():
-    array=[30,35,15,5,10,20,25]
-    n=len(array)
-    #Size of matrix created from above array will be
-    # 30*35 35*15 15*5 5*10 10*20 20*25
-    matrix , optimal_solution = matrix_chain_order(array)
-
-    print("No. of Operation required: "+str((matrix[1][n-1])))
-    print_optimal_solution(optimal_solution,1,n-1)
-if __name__ == '__main__':
-    main()
