@@ -2,7 +2,8 @@ from algorithms.bfs import (
     count_islands,
     maze_search,
     shortest_distance_from_all_buildings,
-    ladder_length
+    ladder_length,
+    shortest_distance
 )
 
 import unittest
@@ -50,6 +51,11 @@ class TestWordLadder(unittest.TestCase):
         # not possible to reach !
         self.assertEqual(-1, ladder_length('rahul', 'coder', ['blahh', 'blhah']))
 
+class TestShortestDistance(unittest.TestCase):
+
+    def test_shortest_distance(self):
+        grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+        self.assertEqual(7, shortest_distance(grid))
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,11 +2,11 @@ from algorithms.heap import (
     BinaryHeap,
     get_skyline,
     max_sliding_window,
-    k_closest
+    k_closest,
+
 )
 
 import unittest
-
 
 class TestBinaryHeap(unittest.TestCase):
     """
@@ -61,6 +61,10 @@ class TestSuite(unittest.TestCase):
         self.assertEqual([(-2, -2), (1, 1), (1, 0), (-1, 0)], k_closest(points, 4))
         self.assertEqual([(10, 2), (2, 8), (5, 2), (-2, -2), (2, 3),
                           (1, 0), (-1, 0), (1, 1)], k_closest(points, 8))
+
+
+
+
 
 
 if __name__ == "__main__":

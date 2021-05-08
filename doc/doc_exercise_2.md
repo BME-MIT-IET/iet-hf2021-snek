@@ -1,11 +1,18 @@
 # 2. feladat, egységtesztelés
 
-Amikor megkaptuk a projektet, akkor a legtöbb függvényhez volt írva egységteszt, viszont ezen szerettünk volna javítani és minél inkább 100% felé vinni ezt a számot.
+Amikor megkaptuk a projektet, akkor a legtöbb függvényhez volt írva egységteszt, viszont ezen szerettünk volna javítani, úgy, hogy a legtöbb algoritmusra legyen teszt és minél inkább 100% felé vigyük a lefedettséget.
 Ehhez a codecov.io-n lévő kódlefedettség mérőt vettük alapul és amelyik függvényt úgy ítéltük, hogy nincs eléggé letesztelve, azt átnéztük és javítottunk rajta.
 
-A math mappában több ilyen függvényre is bukkantunk, viszont kiderült ennek nem az az oka, hogy nincsenek egységtesztek készítva hozzá, hanem, hogy a fejlesztők egy másik fájlban definiált függvényt nem importálták a fájla, hanem egyszerűen átmásolták.
-Így a későbbi definíció lépett életbe és ezért volt alacsony a kódlefedettség ebben a mappában. 
-Ezeket a duplikált kódokat helyettesítettük importokkal így javítva a kódminőséget, átláthatóságot és a kódlefedettséget is.
-Ebben a mappában szerepelt még az rsa algoritmus is, ami nem volt tesztelve, de ennek a tesztjét a fejlesztők csak kikommentezték, mert túl sok időt vett igénybe (a saját számítógépemen 15 percet), amit nem szeretnék minden egyes commit-nál lefuttatni, ezért kikommentezve hagytuk.
+Tipikusabb hibák az egységtesztek során:
 
-A matrix mappában szerepelt egy algoritmus, melyhez egy időmérő tesztet készítettek a függvény alá, nem pedig a tests mappában, ezért azt áthelyeztük a megfelelő helyére.
+- a függvényeknek nem volt visszatérési értéke, csupán valamit kiírt a standard kimenetre
+- volt olyan függvény, melynek implementációja python3-as környezetben nem futott le
+- néhány algoritmus rossz helyen volt, illetve intuitívan nem ott keresné a fejlesztő
+- az algoritmusok másik fájlba nem importálva lettek, hanem be lettek másolva, így duplikációt okoztak és megzavarták a kódlefedettséget is
+- az egyik algoritmus alá volt definiálva egy időmérő teszt, nem pedig a tests mappába
+
+Ezeket a hibákat természetesen kijavítottuk és teszt hiánya esetén új teszteket is írtunk.
+
+Megjegyzés: Az rsa-hoz tartozó teszt jelenleg ki van kommentezve, mert sok idő a lefutása és nem szeretnénk minden egyes commit-kor CI-vel kivárni a futását.
+
+Összességében úgy gondolom, hogy az egységtesztjeink a kód minőségén és átláthatóságán is javítottak. Sikerült elérnünk, hogy a legtöbb algoritmusra legyen tesztünk, így a célunkat e téren sikeresen teljesítettük. 

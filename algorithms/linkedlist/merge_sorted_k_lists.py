@@ -5,44 +5,35 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 
 from heapq import heappop, heapreplace, heapify
 from queue import PriorityQueue
-
+import heapq
 
 # Definition for singly-linked list.
-class ListNode(object):
+class Node:
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
 def merge_k_lists(lists):
-    dummy = node = ListNode(0)
-    h = [(n.val, n) for n in lists if n]
-    heapify(h)
+    head = Node(None)
+    curr = head
+    h = []
+    for i in range(len(lists)):
+        if lists[i]:
+            heapq.heappush(h, (lists[i].val, i))
+            lists[i] = lists[i].next
+
     while h:
-        v, n = h[0]
-        if n.next is None:
-            heappop(h)  # only change heap size when necessary
-        else:
-            heapreplace(h, (n.next.val, n.next))
-        node.next = n
-        node = node.next
+        val, i = heapq.heappop(h)
+        curr.next = Node(val)
+        curr = curr.next
+        if lists[i]:
+            heapq.heappush(h, (lists[i].val, i))
+            lists[i] = lists[i].next
 
-    return dummy.next
+    return head.next
 
 
-def merge_k_lists(lists):
-    dummy = ListNode(None)
-    curr = dummy
-    q = PriorityQueue()
-    for node in lists:
-        if node:
-            q.put((node.val, node))
-    while not q.empty():
-        curr.next = q.get()[1]  # These two lines seem to
-        curr = curr.next  # be equivalent to :-   curr = q.get()[1]
-        if curr.next:
-            q.put((curr.next.val, curr.next))
-    return dummy.next
 
 
 """
