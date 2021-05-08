@@ -1,6 +1,6 @@
 # 2. feladat, egységtesztelés
 
-Amikor megkaptuk a projektet, akkor a legtöbb függvényhez volt írva egységteszt, viszont ezen szerettünk volna javítani, úgy, hogy a legtöbb algoritmusra legyen teszt és minél inkább 100% felé vigyük a lefedettséget.
+Amikor megkaptuk a projektet, akkor sok függvényhez volt írva egységteszt, viszont nem mindenhez. Ezen szerettünk volna javítani, úgy, hogy a minden algoritmusra legyen legalább egy teszt, amivel ellenőrizhetjük, hogy az rendesen van-e implementálva, emellett minél inkább 100% közelébe vigyük a lefedettséget.
 Ehhez a codecov.io-n lévő kódlefedettség mérőt vettük alapul és amelyik függvényt úgy ítéltük, hogy nincs eléggé letesztelve, azt átnéztük és javítottunk rajta.
 
 Tipikusabb hibák az egységtesztek során:
