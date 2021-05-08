@@ -1,0 +1,4 @@
+behave~=1.2.6
+pytest~=6.2.3
+setuptools~=56.0.0
+pandas~=1.2.4

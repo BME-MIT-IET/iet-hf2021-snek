@@ -229,6 +229,31 @@ class TestSparseDotVector(unittest.TestCase):
         self.assertEqual(sparse_dot_vector.dot_product(sparse_dot_vector.vector_to_index_value_list(
             [1., 2., 3.]), sparse_dot_vector.vector_to_index_value_list([0., 2., 2.])), 10)
 
+    def test_sparse_dot_vector_time(self):
+        vector_length = 1024
+        vector_count = 1024
+        nozero_counut = 10
+
+        def random_vector():
+            import random
+            vector = [0 for _ in range(vector_length)]
+            for i in random.sample(range(vector_length), nozero_counut):
+                vector[i] = random.random()
+            return vector
+
+        vectors = [random_vector() for _ in range(vector_count)]
+        iv_lists = [sparse_dot_vector.vector_to_index_value_list(vector) for vector in vectors]
+
+        import time
+
+        time_start = time.time()
+        for i in range(vector_count):
+            for j in range(i):
+                sparse_dot_vector.dot_product(iv_lists[i], iv_lists[j])
+        time_end = time.time()
+
+        print(time_end - time_start, 'seconds')
+
 
 class TestSpiralTraversal(unittest.TestCase):
     """[summary]
@@ -368,6 +393,7 @@ class TestSortMatrixDiagonally(unittest.TestCase):
             [1, 2, 2, 2],
             [1, 2, 3, 3]
         ])
+
 
 
 if __name__ == "__main__":

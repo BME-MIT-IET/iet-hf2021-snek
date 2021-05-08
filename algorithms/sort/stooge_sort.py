@@ -8,9 +8,9 @@ Reference: https://www.geeksforgeeks.org/stooge-sort/
 
 
 
-def stoogesort(arr, l, h): 
+def stoogesort(arr, l, h):
     if l >= h: 
-        return
+        return arr
    
     # If first element is smaller 
     # than last, swap them 
@@ -32,12 +32,16 @@ def stoogesort(arr, l, h):
    
         # Recursively sort first 2 / 3 elements 
         # again to confirm 
-        stoogesort(arr, l, (h-t)) 
+        stoogesort(arr, l, (h-t))
+
+    return arr
         
 
 if __name__ == "__main__":
     array = [1,3,64,5,7,8]
-    n = len(array) 
-    stoogesort(array, 0, n-1) 
+    n = len(array)
+    stoogesort(array, 0, n-1)
     for i in range(0, n): 
-        print(array[i], end = ' ') 
+        print(array[i], end = ' ')
+
+

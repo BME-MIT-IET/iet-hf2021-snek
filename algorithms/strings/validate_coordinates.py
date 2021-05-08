@@ -46,4 +46,4 @@ def is_valid_coordinates_1(coordinates):
 
 # using regular expression
 def is_valid_coordinates_regular_expression(coordinates):
-    return bool(re.match("-?(\d|[1-8]\d|90)\.?\d*, -?(\d|[1-9]\d|1[0-7]\d|180)\.?\d*$", coordinates))  
+    return bool(re.match(r'^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$', coordinates))

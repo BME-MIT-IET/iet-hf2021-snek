@@ -33,39 +33,3 @@ def dot_product(iv_list1, iv_list2):
 
     return product
 
-
-def __test_simple():
-    print(dot_product(vector_to_index_value_list([1., 2., 3.]),
-                      vector_to_index_value_list([0., 2., 2.])))
-    # 10
-
-
-def __test_time():
-    vector_length = 1024
-    vector_count = 1024
-    nozero_counut = 10
-
-    def random_vector():
-        import random
-        vector = [0 for _ in range(vector_length)]
-        for i in random.sample(range(vector_length), nozero_counut):
-            vector[i] = random.random()
-        return vector
-
-    vectors = [random_vector() for _ in range(vector_count)]
-    iv_lists = [vector_to_index_value_list(vector) for vector in vectors]
-
-    import time
-
-    time_start = time.time()
-    for i in range(vector_count):
-        for j in range(i):
-            dot_product(iv_lists[i], iv_lists[j])
-    time_end = time.time()
-
-    print(time_end - time_start, 'seconds')
-
-
-if __name__ == '__main__':
-    __test_simple()
-    __test_time()
