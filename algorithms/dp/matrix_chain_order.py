@@ -12,7 +12,7 @@ INF = float("inf")
 def matrix_chain_order(array):
     n = len(array)
     # create the table to store solutions to sub problems
-    m = [[0 for x in range(n)] for x in range(n)]
+    m = [[0 for _ in range(n)] for _ in range(n)]
 
     # l is the length of the chain
     for l in range(2, n):
