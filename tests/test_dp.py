@@ -23,7 +23,7 @@ from algorithms.dp import (
     is_match,
     cut_rod,
     word_break,
-    matrix_chain_order,print_optimal_solution
+    matrix_chain_order
 )
 
 
